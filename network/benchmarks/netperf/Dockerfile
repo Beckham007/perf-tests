@@ -27,7 +27,7 @@ ENV LD_LIBRARY_PATH=/usr/local/lib
 MAINTAINER Girish Kalele <gkalele@google.com>
 # install binary and remove cache
 RUN apt-get update \
-    && apt-get install -y  curl wget net-tools gcc make libsctp-dev \
+    && apt-get install -y  curl wget net-tools traceroute gcc make libsctp-dev \
     && rm -rf /var/lib/apt/lists/*
 RUN mkdir -p /tmp
 
@@ -41,4 +41,4 @@ RUN cd netperf-2.7.0 && ./configure --prefix=/usr/local --bindir /usr/local/bin 
 
 COPY nptests /usr/bin/
 
-ENTRYPOINT ["nptests"]
+CMD ["nptests"]

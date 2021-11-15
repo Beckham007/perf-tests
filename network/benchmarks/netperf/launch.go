@@ -257,6 +257,7 @@ func createRCs(c *kubernetes.Clientset) bool {
 		return false
 	}
 	fmt.Println("Created orchestrator replication controller")
+
 	for i := 1; i <= 3; i++ {
 		// Bring up pods slowly
 		time.Sleep(3 * time.Second)

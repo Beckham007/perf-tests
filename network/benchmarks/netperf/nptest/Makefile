@@ -15,7 +15,7 @@
 all: nptests
 
 nptests: ./nptest.go
-	@go build -o nptests
+	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o nptests
 
 clean:
 	@rm -f nptests
